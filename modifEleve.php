@@ -1,7 +1,7 @@
 <?php
 echo modifEleve();
 function modifEleve(){
-  $db = new PDO('mysql:host=localhost;dbname=carnet_adresse;charset=utf8','phpmyadmin','MolUbuntu');
+  $db=new PDO('mysql:host=localhost;dbname=carnet_adresse;charset=utf8','root','');
   $eleveAModif="SELECT * FROM contacts WHERE id=".$_GET['id'];
   $html="";
   $return=$db->query($eleveAModif);
@@ -35,12 +35,12 @@ function modifEleve(){
    $tel=$_POST['tel'];
 
    $email=strtolower($_POST['prenom'].".".$_POST['nom']."@greta-sud-aquitaine.academy");
-   //if(isset($nom)&&isset($prenom)&&isset($date)&&isset($genre)){
+   if(isset($nom)&&isset($prenom)&&isset($date)&&isset($genre)){
 
      $modifEleve="UPDATE contacts SET nom='$nom',prenom='$prenom',genre='$genre',email='$email',datedenaissance='$date',tel='$tel' WHERE id=".$_GET['id'];
 
      $db->query($modifEleve);
-  //}
+   }
    if(isset($_POST['nom'])){
      header("location: http://monsite.local/baseDonnees/afficheListe.php");
    };

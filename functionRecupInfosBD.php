@@ -1,7 +1,7 @@
 <?php
 
 function RecupInfosBD(){
-    $db = new PDO('mysql:host=localhost;dbname=carnet_adresse;charset=utf8','phpmyadmin','MolUbuntu');
+    $db=new PDO('mysql:host=localhost;dbname=carnet_adresse;charset=utf8','root','');
     $recupInfos=[];
     $infos="SELECT * FROM contacts";
     $return=$db->query($infos);
